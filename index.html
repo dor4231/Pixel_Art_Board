@@ -4,12 +4,49 @@
 		<title>Dor Bar | Pixel Art Board</title>
 		
 		<link rel="stylesheet" type="text/css" href="./css/main.css">
-		<link rel="stylesheet" type="text/css" href="./css/normaliz.css">
-		<script src="./js/main.js">
+		<link rel="stylesheet" type="text/css" href="./css/normalize.css">
+		
 	</head>
-	
 	<body>
-	
-	</body>
-	
+		<header>
+			<h1>Pixel Art Board</h1>
+			<p>This is the most advance pixel art creator in the world.</p>
+		</header>
+		<div id="color-plate">
+			<div class="color selected" id="#000000"></div>
+			<div class="color" id="#ffffff"></div>
+			<div class="color" id="#888888"></div>
+			<div class="color" id="#e5f442"></div>
+			<div class="color" id="#41a0f4"></div>
+			
+			<div id="addColor" class="color">
+				<span>+</span>
+			</div>
+		</div>
+		<div id="canvas">
+			
+		</div>
+		<footer>
+			
+		</footer>
+		
+<!-- 	Pop-Up Forms	 -->
+		<div id="colorPicker" class="popup">
+			<div class="window">
+				<h2>Color Picker:</h2>
+			</div>
+		</div>
+		<div id="canvas-init" class="form">
+			<div class="window">
+				<h2>Canvas Creator:</h2>
+				<label for="width">Width:</label>
+				<input type="number" name="width" value="70"><br>
+				<label for="height">Height:</label>
+				<input type="number" name="height" value="10">
+				<button id="create">Create!</button>			
+			</div>			
+		</div>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+		<script src="./js/main.js"></script>
+	</body>	
 </html>
