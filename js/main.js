@@ -2,6 +2,7 @@ $(document).ready(function() {
 	
 	var selected_color = "#000000"
 	var isDown = false;
+	var showing = false;
 	
 	toSquare = function(element) {
 		width = element.css("width");
@@ -32,7 +33,7 @@ $(document).ready(function() {
 	
 	// Main:
 	page_init()
-	create_canvas(100, 50);
+	
 	
 	
 	
@@ -41,13 +42,13 @@ $(document).ready(function() {
 		page_init();
 	});
 	
-	$(".color").click(function() {
+	$("#color-stack").on("click", ".color", function() {
 		$(".color").removeClass("selected");
 		$( this ).addClass("selected");
 		selected_color = $( this ).attr("id");
 	});
 	
-	$(".pixel").mousedown(function(){
+	$("#canvas").on("mousedown", ".pixel", function(){
 		isDown = true;
 		console.log(isDown);
 	});
@@ -56,14 +57,54 @@ $(document).ready(function() {
 		isDown = false;
 	});
 	
-	$(".pixel").hover(function(){
+	$("#canvas").on("mouseover", ".pixel", function(){
 		if(isDown){
 			console.log("Pinating!")
 			$( this ).css("background-color", selected_color);
 		}
 	});
 	
-	$("#create").click(function(){
+	$("#canvas").on("click", ".pixel", function(){
+		console.log("Pinating!")
+		$( this ).css("background-color", selected_color);
+	});
+	
+	$("#create").click(function( event ) {
+		event.preventDefault();
+		dementions = document.getElementById("myForm").elements
+		console.log();
+		create_canvas(dementions[0].value, dementions[1].value);
 		$(".form").hide();
 	});
+	
+	$("#addColorPanel").on("click", function(event){
+		if (!showing) {
+			showing = true;
+			$("#colorPicker").show();
+			$("#colorPicker").css("top", event.clientY - 150);
+			$("#colorPicker").css("left", event.clientX);
+			$("#colorPicker").addClass("pop_up");
+			console.log($("#colorPicker").attr("class"))
+			selected_color = "#666";
+			
+			mouse_position = []
+			$(".popup").css("top", event.clientX);
+			$(".popup").css("bottom", event.clientY);
+		}else {
+			showing = false;
+			$("#colorPickerValue").val();
+			$("#colorPicker").hide();
+		}
+	});
+	
+	$("#addColor").click(function() {
+		$("#color-stack").append('<div class="color" id="' + $('#colorPickerValue').val() + '"></div>');
+		page_init();
+	});
+	
+	$("#useColor").click(function() {
+		selected_color = $("#colorPickerValue").val();
+	});
+	
+	
 });

@@ -13,13 +13,17 @@
 			<p>This is the most advance pixel art creator in the world.</p>
 		</header>
 		<div id="color-plate">
-			<div class="color selected" id="#000000"></div>
-			<div class="color" id="#ffffff"></div>
-			<div class="color" id="#888888"></div>
-			<div class="color" id="#e5f442"></div>
-			<div class="color" id="#41a0f4"></div>
+			<div id="color-stack">
+				<div class="color selected" id="#000000"></div>
+				<div class="color" id="#ffffff"></div>
+				<div class="color" id="#888888"></div>
+				<div class="color" id="#ff0000"></div>
+				<div class="color" id="#00ff00"></div>
+				<div class="color" id="#0000ff"></div>
+				<div class="color" id="#ffff00"></div>
+			</div>
 			
-			<div id="addColor" class="color">
+			<div id="addColorPanel" class="color">
 				<span>+</span>
 			</div>
 		</div>
@@ -31,19 +35,22 @@
 		</footer>
 		
 <!-- 	Pop-Up Forms	 -->
-		<div id="colorPicker" class="popup">
-			<div class="window">
-				<h2>Color Picker:</h2>
-			</div>
+		<div id="colorPicker">
+			<h2>Color Picker:</h2>
+			<input type="color" name="colorPick" id="colorPickerValue"><br>
+			<button id="addColor">Add Color to Plate</button>
+			<button id="useColor">Use Color</button>
 		</div>
 		<div id="canvas-init" class="form">
 			<div class="window">
 				<h2>Canvas Creator:</h2>
-				<label for="width">Width:</label>
-				<input type="number" name="width" value="70"><br>
-				<label for="height">Height:</label>
-				<input type="number" name="height" value="10">
-				<button id="create">Create!</button>			
+				<form id="myForm">
+					<label for="width">Width:</label>
+					<input type="number" name="width" value="70">
+					<label for="height">Height:</label>
+					<input type="number" name="height" value="40"><br>
+					<button id="create">Create!</button>			
+				</form>
 			</div>			
 		</div>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
